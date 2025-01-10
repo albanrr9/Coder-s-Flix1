@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Montserrat", serif;
+}
+
+body {
+  background-color: #444;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #333;
+  width: 100%;
+  height: 60px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f1c40f;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  height: 100px;
+  padding: 0 4vw;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+  height: calc(100vh - 160px);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 1200px;
+  height: 800px;
+  background-color: #333;
+  border-radius: 50px;
+  border: 2px solid #888;
+}
+
+.info, .form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 50%;
+  height: 100%;
+  padding: 40px;
+
+}
+
+.info {
+  justify-content: center;
+  gap: 10px;
+}
+
+.vr {
+  width: 4px;
+  height: 95%;
+  background-color: #888;
+  border-radius: 50%;
+}
+
+.info h1 {
+  font-size: 26px;
+}
+
+.code {
+  position: relative;
+  overflow: hidden;
+}
+
+.code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.311);
+  animation: fillBackground 3s infinite;
+}
+
+.enjoy {
+  align-self: flex-end;
+}
+
+@keyframes fillBackground {
+  0%, 100% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+.form {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 85%;
+}
+
+
+#hidden-fields {
+  display: flex;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+  gap: 1em;
+}
+
+@supports (mix-blend-mode: darken) {
+  .input-group {
+    position: relative;
+    mix-blend-mode: lighten;
+  }
+
+  .input-group__label {
+    position: absolute;
+    left: 2em;
+    background: #000;
+  }
+
+  .input-group__label2 {
+    position: absolute;
+    left: 18em;
+    background: #000;
+  }
+
+  .btn {
+    position: relative;
+    mix-blend-mode: lighten;
+  }
+
+  .custom-radio {
+    mix-blend-mode: lighten;
+  }
+
+  #back-btn {
+    position: relative;
+    mix-blend-mode: lighten;
+  }
+
+  .player-selector__button {
+    position: relative;
+    mix-blend-mode: lighten;
+  }
+}
+
+.input-group__label {
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  letter-spacing: 0.1em;
+  color: #ccd;
+  color: rgba(255, 220, 255, 0.6);
+  cursor: pointer;
+}
+
+.input-group__label2 {
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  letter-spacing: 0.1em;
+  color: rgba(255, 220, 255, 0.6);
+  cursor: pointer;
+}
+
+.input-group__input {
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-style: none;
+  outline: none;
+  height: calc(1em + 1.6em + 0.5em);
+  width: 100%;
+  padding: 0.8em 1em;
+  margin: 0.35em;
+  border: 0.25em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #d427dd 0%, #0ff 50%, #2751be 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 50px;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+}
+
+.input-group__input:hover {
+  background-position: 100% 0;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin: 0.35em 1em;
+}
+
+.radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #ccd;
+}
+
+.radio input[type="radio"] {
+  display: none; /* Hide default radio button */
+}
+
+.custom-radio {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0.5em;
+  border: 0.2em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #d427dd 0%, #0ff 50%, #2751be 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 50%;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+  position: relative;
+}
+
+.radio input[type="radio"]:checked + .custom-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6em;
+  height: 0.6em;
+  background-color: #0ff; /* Adjust this to your gradient's color scheme */
+  border-radius: 50%;
+}
+
+.radio:hover .custom-radio {
+  background-position: 100% 0;
+}
+
+.btn {
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-style: none;
+  outline: none;
+  margin: 2.5em 0.35em 0.35em 0.35em;
+  height: calc(1em + 1.6em + 0.5em);
+  padding: 0.8em 1em;
+  border: 0.25em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #d427dd 0%, #0ff 50%, #2751be 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 50px;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-position: 100% 0;
+}
+
+#player-div {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+  height: 800px;
+  background-color: #333;
+  border-radius: 50px;
+  border: 2px solid #888;
+}
+
+#back-btn {
+  border: 0.25em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #d427dd 0%, #0ff 50%, #2751be 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 50px;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+  cursor: pointer;
+  grid-row: 1;
+}
+
+#back-btn:hover {
+  background-position: 100% 0;
+}
+
+.player-selector {
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  padding: 25px;
+  gap: 10px;
+  width: 100%;
+}
+
+.player-selector__buttons {
+  grid-row: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.player-selector__button {
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-style: none;
+  outline: none;
+  height: calc(1em + 1.6em + 0.5em);
+  padding: 0.8em 1em;
+  border: 0.25em solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #d427dd 0%, #0ff 50%, #2751be 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 50px;
+  background-size: 200% 100%;
+  transition: background-position 0.8s ease-out;
+  cursor: pointer;
+}
+
+.player-selector__button:hover {
+  background-position: 100% 0;
+}
+
+.player-content {
+  display: flex;
+  width: 85%;
+  aspect-ratio: 16 / 9;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.active{
+  background-image: linear-gradient(#000, #000), linear-gradient(120deg, #dd2727 0%, rgb(255, 255, 0) 50%, #2cbe27 100%);
+  color:#f1c40f
+}
