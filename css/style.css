@@ -395,3 +395,92 @@ form {
   background-image: linear-gradient(#000, #000), linear-gradient(120deg, #dd2727 0%, rgb(255, 255, 0) 50%, #2cbe27 100%);
   color:#f1c40f
 }
+/* Responsive styles for mobile and tablet */
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 5vw;
+  }
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
+  .content {
+    padding: 0 2vw;
+    height: auto;
+    gap: 2px;
+  }
+  main {
+    padding: 5px;
+    height: auto;
+  }
+  .search, #player-div {
+    flex-direction: column;
+    width: 98vw;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px 0;
+  }
+  .info, .form {
+    width: 100%;
+    padding: 15px 5vw;
+    height: auto;
+  }
+  .vr {
+    display: none;
+  }
+  .player-content {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  .player-selector {
+    padding: 10px;
+    gap: 5px;
+  }
+  .player-selector__buttons {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95em;
+  }
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 8px 2vw;
+  }
+  .logo img {
+    width: 35px;
+    height: 35px;
+  }
+  .content h1, .info h1 {
+    font-size: 1.1em;
+  }
+  .content p, .info p {
+    font-size: 0.95em;
+  }
+  .search, #player-div {
+    width: 99vw;
+    min-width: 0;
+    border-radius: 10px;
+    padding: 5px 0;
+  }
+  .info, .form {
+    padding: 10px 2vw;
+  }
+  .input-group__input, .btn, .player-selector__button {
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+    border-radius: 30px;
+  }
+  .radio {
+    font-size: 1em;
+  }
+  .player-content {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+}
