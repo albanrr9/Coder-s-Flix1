@@ -433,6 +433,9 @@ form {
   .player-content {
     width: 100%;
     aspect-ratio: 16/9;
+    min-height: 220px;
+    max-height: 60vw;
+    height: auto;
   }
   .player-selector {
     padding: 10px;
@@ -440,6 +443,32 @@ form {
   }
   .player-selector__buttons {
     gap: 5px;
+  }
+  .input-group {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  form {
+    width: 100%;
+    gap: 0.7em;
+  }
+  .btn, .player-selector__button {
+    min-width: 120px;
+    font-size: 1.1em;
+    padding: 0.7em 1em;
+    border-radius: 30px;
+    touch-action: manipulation;
+  }
+  .radio-group {
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: flex-start;
+  }
+  .player-selector__buttons {
+    flex-wrap: wrap;
+  }
+  .player-selector {
+    overflow-x: auto;
   }
 }
 
@@ -475,6 +504,8 @@ form {
     font-size: 1em;
     padding: 0.5em 0.7em;
     border-radius: 30px;
+    min-width: 100px;
+    touch-action: manipulation;
   }
   .radio {
     font-size: 1em;
@@ -482,5 +513,27 @@ form {
   .player-content {
     width: 100%;
     aspect-ratio: 16/9;
+    min-height: 180px;
+    max-height: 70vw;
+    height: auto;
+  }
+  .input-group {
+    flex-direction: column;
+    gap: 0.3em;
+  }
+  form {
+    width: 100%;
+    gap: 0.5em;
+  }
+  .radio-group {
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: flex-start;
+  }
+  .player-selector__buttons {
+    flex-wrap: wrap;
+  }
+  .player-selector {
+    overflow-x: auto;
   }
 }
