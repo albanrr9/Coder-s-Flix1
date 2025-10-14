@@ -9,7 +9,7 @@ const playerContent = document.getElementById('player-content');
 const historyDiv = document.getElementById('history-div');
 const historyList = document.getElementById('history-list');
 let searchInput = "";
-const backendApiUrl = "https://imdb-scraper-backend-inda17xm8-albanrr9s-projects.vercel.app/api/title/";
+const backendApiUrl = "https://imdb-scraper-backend-9hol3ricj-albanrr9s-projects.vercel.app/api/title/";
 
 // Toggle visibility of hidden fields
 option1.addEventListener('change', () => {
