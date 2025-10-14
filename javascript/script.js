@@ -6,7 +6,10 @@ const backButton = document.getElementById('back-btn');
 const superembed = document.getElementById('superembed');
 const twoembed = document.getElementById('2embed');
 const playerContent = document.getElementById('player-content');
+const historyDiv = document.getElementById('history-div');
+const historyList = document.getElementById('history-list');
 let searchInput = "";
+const backendApiUrl = "https://imdb-scraper-backend-inda17xm8-albanrr9s-projects.vercel.app/api/title/";
 
 // Toggle visibility of hidden fields
 option1.addEventListener('change', () => {
@@ -21,6 +24,48 @@ option2.addEventListener('change', () => {
   }
 });
 
+// Load history from local storage
+function loadHistory() {
+  const history = JSON.parse(localStorage.getItem('searchHistory')) || [];
+  historyList.innerHTML = '';
+
+  history.forEach(async (item) => {
+    const li = document.createElement('li');
+
+    try {
+      // Fetch the title from the backend API
+      const response = await fetch(`${backendApiUrl}${item}`);
+      const data = await response.json();
+
+      if (data.title) {
+        li.textContent = data.title; // Use the fetched title
+      } else {
+        li.textContent = item; // Fallback to the code if title is unavailable
+      }
+    } catch (error) {
+      console.error('Error fetching title:', error);
+      li.textContent = item; // Fallback to the code in case of an error
+    }
+
+    li.addEventListener('click', () => {
+      document.getElementById('main-search').value = item;
+    });
+
+    historyList.appendChild(li);
+  });
+}
+
+// Save to history in local storage
+function saveToHistory(code) {
+  let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
+  if (!history.includes(code)) {
+    history.unshift(code);
+    if (history.length > 10) history.pop(); // Limit history to 10 items
+    localStorage.setItem('searchHistory', JSON.stringify(history));
+  }
+}
+
+// Update search button click to save to history
 searchButton.addEventListener('click', () => {
   searchInput = document.getElementById('main-search').value.trim().toLowerCase();
   const selectedRadio = document.querySelector('input[name="type"]:checked');
@@ -41,7 +86,10 @@ searchButton.addEventListener('click', () => {
 
     searchInput = `${searchInput}&s=${season}&e=${episode}`;
   }
-  
+
+  saveToHistory(searchInput); // Save the search input to history
+  loadHistory(); // Reload the history section
+
   const searchDiv = document.getElementById('search-div');
   const playerDiv = document.getElementById('player-div');
   searchDiv.classList.add('hidden');
@@ -93,3 +141,6 @@ function generateEmbedUrls(searchInput, player, isId) {
     }
   }
 }
+
+// Load history on page load
+document.addEventListener('DOMContentLoaded', loadHistory);
