@@ -10,57 +10,78 @@
 <body>
   <nav>
     <a href="#" class="logo">
-      <img src="img/logo.png" alt="">
+      <img src="img/logo.png" alt="Coder's Flix Logo">
       <h1>Coder's Flix</h1>
     </a>
   </nav>
   <header>
     <div class="content">
-      <h1>Welcome to Coder's Flix</h1>
-      <p>Watch your favorite movies and TV shows online.</p>
+      <h1>Watch Unlimited Movies & TV Shows</h1>
+      <p>Stream your favorite content from IMDb and TMDb databases</p>
     </div>
   </header>
   <main>
     <div class="search" id="search-div">
-      <div class="info">
-        <h1>Watch your favorite movies and TV shows online.</h1>
-        <p>Thanks for choosing Coder's Flix</p>
-        <p>Here you can watch all movies and TV shows that are already listed in IMDb or TMDb</p>
-        <p>Just search for your favorite movie or TV show on one of these two movies & TV shows databases</p>
-        <p>Just go to link from IMDb and copy the code that starts with tt, ex. <span>https://www.imdb.com/title/<span class="code">tt21382296</span>/</span></p>
-        <p>or from TMDb, ex. <span>https://www.themoviedb.org/movie/<span class="code">1156593</span>-culpa-tuya</span></p>
-        <p>than paste it on search bar to watch it.</p>
-        <i class="enjoy">Enjoy it!!!</i>
+      <!-- Added search by title section -->
+      <div class="search-by-title">
+        <h2>Search by Title</h2>
+        <div class="title-search-container">
+          <input type="text" id="title-search" class="title-search-input" placeholder="Search for movies or TV shows...">
+          <button type="button" class="btn-search" id="title-search-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="search-results" id="search-results"></div>
       </div>
-      <div class="vr"></div>
-      <div class="form">
-        <form>
-          <div class="input-group">
-            <label for="main-search" class="input-group__label"><strong>Search:</strong></label>
-            <input type="text" id="main-search" class="input-group__input" name="main-search" placeholder="Enter code you copied...">
-          </div>
-          <div class="radio-group">
-            <label class="radio">
-              <input type="radio" name="type" value="movie" id="movie" checked>
-              <span class="custom-radio"></span> Movie
-            </label>
-            <label class="radio">
-              <input type="radio" name="type" value="tvshow" id="tvshow">
-              <span class="custom-radio"></span> TV Show
-            </label>
-          </div>
-          <div id="hidden-fields" class="input-group hidden">
-            <label for="season" class="input-group__label">Season:</label>
-            <input type="text" id="season" class="input-group__input" name="season" placeholder="1,2,3..." pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Only numbers are allowed">
-            <label for="episode" class="input-group__label2">Episode:</label>
-            <input type="text" id="episode" class="input-group__input" name="episode" placeholder="1,2,3..." pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Only numbers are allowed">
-          </div>
-          <button type="button" class="btn" id="search-button">Search</button>
-        </form>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <!-- Wrapped existing code search in a container -->
+      <div class="search-by-code">
+        <h2>Search by Code</h2>
+        <div class="info">
+          <p>Enter IMDb code (starts with "tt") or TMDb numeric code</p>
+          <p><strong>IMDb:</strong> <span class="code">tt21382296</span></p>
+          <p><strong>TMDb:</strong> <span class="code">1156593</span></p>
+        </div>
+        <div class="form">
+          <form>
+            <div class="input-group">
+              <label for="main-search" class="input-group__label">Enter Code</label>
+              <input type="text" id="main-search" class="input-group__input" name="main-search" placeholder="tt1234567 or 123456">
+            </div>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="type" value="movie" id="movie" checked>
+                <span class="custom-radio"></span> Movie
+              </label>
+              <label class="radio">
+                <input type="radio" name="type" value="tvshow" id="tvshow">
+                <span class="custom-radio"></span> TV Show
+              </label>
+            </div>
+            <div id="hidden-fields" class="input-group hidden">
+              <div class="input-group">
+                <label for="season" class="input-group__label">Season</label>
+                <input type="text" id="season" class="input-group__input" name="season" placeholder="1" pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Only numbers are allowed">
+              </div>
+              <div class="input-group">
+                <label for="episode" class="input-group__label">Episode</label>
+                <input type="text" id="episode" class="input-group__input" name="episode" placeholder="1" pattern="\d*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Only numbers are allowed">
+              </div>
+            </div>
+            <button type="button" class="btn" id="search-button">Start Watching</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="history" id="history-div">
-      <h2>Search History</h2>
+      <h2>Recently Watched</h2>
       <ul id="history-list"></ul>
     </div>
     <div class="player hidden" id="player-div">
@@ -70,7 +91,6 @@
           <button class="player-selector__button" id="superembed">SuperEmbed</button>
           <button class="player-selector__button" id="2embed">2Embed</button>
         </div>
-        
       </div>
       <div class="player-content" id="player-content"></div>   
     </div>
